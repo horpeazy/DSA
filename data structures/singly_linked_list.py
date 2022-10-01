@@ -207,3 +207,40 @@ def iscircular(linked_list):
 
         if slow == fast:
             return True
+
+
+# ------------------------------------------------ #
+#    Nested Linked List                            #
+# ------------------------------------------------ #
+
+''' In a NESTED LinkedList object, each node will be a simple LinkedList in itself'''
+class NestedLinkedList(LinkedList):
+    def flatten(self):
+        # TODO: Implement this method to flatten the linked list in ascending sorted order
+        return self._flatten(self.head)
+    
+    def _flatten(self, node):
+        if node.next is None:
+            return merge(node.value, None)
+        
+        return merge(node.value, self._flatten(node.next))
+
+def merge(list1, list2):
+    # TODO: Implement this function so that it merges the two linked lists in a single, sorted linked list.
+    '''
+    The arguments list1, list2 must be of type LinkedList.
+    The merge() function must return an instance of LinkedList.
+    '''
+    if list1 is None:
+        return list2
+    if list2 is None:
+        return list1
+    
+    llist = LinkedList(None)
+    list1_ = list1.to_list()
+    list2_ = list2.to_list()
+    
+    for value in sorted(list1_ + list2_):
+        llist.append(value)
+        
+    return llist
