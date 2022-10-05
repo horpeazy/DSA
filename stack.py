@@ -71,3 +71,54 @@ class Stack:
     
     def is_empty(self):
         return self.num_elements == 0
+
+def equation_checker(equation):
+    """
+    Check equation for balanced parentheses
+
+    Args:
+       equation(string): String form of equation
+    Returns:
+       bool: Return if parentheses are balanced or not
+    """
+    
+    stack = Stack()
+
+    for char in equation:
+        if char == "(":
+            stack.push(char)
+        elif char == ")":
+            if stack.pop() == None:
+                return False
+
+    if stack.size() == 0:
+        return True
+    else:
+        return False
+
+def evaluate_post_fix(input_list):
+    stack = Stack()
+    for element in input_list:
+        if element == '*':
+            second = stack.pop()
+            first = stack.pop()
+            output = first * second
+            stack.push(output)
+        elif element == '/':
+            second = stack.pop()
+            first = stack.pop()
+            output = int(first / second)
+            stack.push(output)
+        elif element == '+':
+            second = stack.pop()
+            first = stack.pop()
+            output = first + second
+            stack.push(output)
+        elif element == '-':
+            second = stack.pop()
+            first = stack.pop()
+            output = first - second
+            stack.push(output)
+        else:
+            stack.push(int(element))
+    return stack.pop()
