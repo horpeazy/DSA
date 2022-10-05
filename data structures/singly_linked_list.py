@@ -298,3 +298,23 @@ def sort(array):
         node = node.next
     
     return sorted_array
+
+import math
+
+def add_one(arr):
+    """
+    :param: arr - list of digits representing some number x
+    return a list with digits represengint (x + 1)
+    """
+    number = 0
+    new_arr = []
+    
+    for num in arr:
+        number = (number * 10) + num
+    number += 1
+    
+    while number:
+        new_arr = [number % 10] + new_arr
+        number = math.floor(number / 10)
+        
+    return new_arr
