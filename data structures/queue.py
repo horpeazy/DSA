@@ -63,6 +63,11 @@ class Queue:
         self.front_index = 0
         self.next_index = index
 
+
+# --------------------------------------------- #
+# Implementing a queue from a stack             #
+# --------------------------------------------- #
+
 class Stack:
     def __init__(self):
         self.items = []
@@ -96,3 +101,17 @@ class Queue:
                 self.outstorage.push(self.instorage.pop())
         return self.outstorage.pop()
     
+# High Level Implementation of queue using python
+
+class Queue:
+    def __init__(self):
+         self.storage = []
+    
+    def size(self):
+         return len(self.storage)
+    
+    def enqueue(self, item):
+         self.storage.append(item)
+
+    def dequeue(self):
+         return self.storage.pop(0)
