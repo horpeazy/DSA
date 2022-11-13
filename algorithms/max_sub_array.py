@@ -39,7 +39,7 @@ def maxSubArrayRecursive(arr, start, stop):                # start and stop are 
         return max(C, max(L,R))                            # Return the maximum of (L,R,C)
     
     else:                                                  # If ever start > stop. Not feasible. 
-        return nums[start]
+        return arr[start]
 
 def maxSubArray(arr):
     start = 0                      # staring index of original array
