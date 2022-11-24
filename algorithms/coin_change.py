@@ -74,4 +74,3 @@ def coin_change(coins, amount):
     if res[amount] == float('inf'):
         return -1
     return res[amount]
-        

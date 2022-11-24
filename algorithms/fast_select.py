@@ -13,7 +13,7 @@ def fastSelect(Arr, k):                         # k is an index
         # Step 2 - For each group, sort and find median (middle). Add the median to setOfMedians
         while (i < n // 5):                     # n//5 gives the integer quotient of the division 
             median = findMedian(Arr, 5*i, 5)    # find median of each group of size 5
-            setOfMedians.append(median)         
+            setOfMedians.append(median)    
             i += 1
 
         # If n is not a multiple of 5, then a last group with size = n % 5 will be formed
